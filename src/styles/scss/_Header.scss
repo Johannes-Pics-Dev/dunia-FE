@@ -1,0 +1,20 @@
+.header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 999;
+    img {
+        width: 8%;
+    }
+    .svg-inline--fa {
+        width: 35px;
+        height: 25px;
+        cursor: pointer;
+        margin: 15px;
+    }
+}

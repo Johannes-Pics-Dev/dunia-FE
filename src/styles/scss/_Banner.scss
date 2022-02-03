@@ -1,0 +1,16 @@
+.banner {
+    background-color: #183E1F;
+    padding: 15px;
+    h6 {
+        color: white;
+        text-align: center;
+    }
+    .partner__logos {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 10px;
+        img {
+            width: 10%;
+        }
+    }
+}

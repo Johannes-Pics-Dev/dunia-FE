@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../assets/logo.jpg';
 import '../styles/scss/_Banner.scss';
 
-function Banner(props) {
+export default function Banner(props) {
     return (
         <div className='banner'>
             <h6>I NOSTRI PARTNER</h6>
@@ -13,6 +13,6 @@ function Banner(props) {
             </div>
         </div>
     );
-}
+};
 
-export default Banner;
+ 

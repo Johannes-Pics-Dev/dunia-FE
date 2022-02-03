@@ -4,7 +4,7 @@ import logo from '../assets/logo.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-function Header(props) {
+export default function Header(props) {
     return (
     <div className='header'>
         <img src={logo} alt='logo'/>
@@ -13,4 +13,4 @@ function Header(props) {
     );
 }
 
-export default Header;
+ 

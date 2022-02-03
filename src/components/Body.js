@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/scss/_Body.scss';
 import logo from '../assets/logo.jpg';
 
-function Body(props) {
+export default function Body(props) {
     return (
     <div>  
         <div className='title'>
@@ -30,4 +30,4 @@ function Body(props) {
     );
 }
 
-export default Body;
+ 

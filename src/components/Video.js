@@ -1,13 +1,13 @@
 import React from 'react';
-import '../styles/scss/_Video.scss';
+import videosrc from '../assets/dunia.webm';
 
 export default function Video(props) {
     return (
-        <div className='video'>
-            <video width="100%" controls >
-                <source src='Dunia.webm'/>
-            </video>
-        </div>
+        <div id="intro" class="bg-video vh-100 shadow-1-strong">
+        <video className="mainvideo" playsInline autoPlay muted loop>
+          <source class="h-100" src={videosrc} />
+        </video>
+      </div>
     );
 }
 

@@ -1,20 +1,18 @@
-import './App.scss';
+//import './App.scss';
 import Header from './components/Header';
-import Video from './components/Video';
-import Body from './components/Body';
-import Banner from './components/Banner';
+import Experience from './components/Experience';
+import Partner from './components/Partner';
 import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 
 function App() {
   return (
     <div className='App'>
-      <Header/>
-      <Video/>
-      <Body/>
-      <Banner/>
-      <Contacts/>
-      <Footer/>
+      <Header />
+      <Experience />
+      <Partner />
+      <Contacts />
+      <Footer />
     </div>
   );
 }

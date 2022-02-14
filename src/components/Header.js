@@ -8,7 +8,7 @@ import Video from './Video';
 export default function Header(props) {
     return (
         <header>
-    <Navbar  fixed="top" expand={false}>
+    <Navbar  className='absolute-nav' expand={false}>
         <Container fluid>
           <Navbar.Brand href="#home">
               <img src={logo} className="img-fluid logo-img" />

@@ -9,6 +9,13 @@ body {
   font-family: ff-speak-web, sans-serif;
 }
 
+.absolute-nav {
+  position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
 h6, .h6 {
   font-size: 1.5rem;
 }

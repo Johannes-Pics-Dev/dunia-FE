@@ -1,10 +1,60 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
+@import 'fonts';
 @import 'header';
 @import 'video';
 @import 'partner';
 
+body {
+  font-family: ff-speak-web, sans-serif;
+}
+
+h6, .h6 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.2em;
+}
+
 .img-insta {
   width: 50px;
+}
+
+
+.img-experience {
+  width: 200px;
+}
+
+.img-footer {
+  width: 100px;
+}
+
+.partner-title {
+  color: #FFFFFF;
+  font-weight: 700px;
+  font-size: 1.5em;
+}
+
+.experience-list {
+  font-size: 1.5em;
+  letter-spacing: 4px;
+}
+.experience-list-divider {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.labels {
+  padding: 25px;
+  p {
+      margin-left:30px;
+      letter-spacing: 4px;
+  }
+  .bar::after{
+      content:'';
+      border: solid 1px black;
+      margin-left:30px;
+      
+  }
 }

@@ -8,7 +8,7 @@ export default function Footer(props) {
         <Container>
         <Row className="justify-content-center text-center">
           <Col md="auto">
-            <img src={logo} />
+            <img src={logo} className="img-fluid img-footer" />
           </Col>
         </Row>
         </Container>

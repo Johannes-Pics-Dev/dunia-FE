@@ -24,6 +24,12 @@ p {
   font-size: 1.2em;
 }
 
+@include media-breakpoint-down(md) {
+  p {
+    font-size: 1em;
+  }
+}
+
 .img-insta {
   width: 50px;
 }
@@ -52,6 +58,15 @@ p {
   font-weight: 700;
 }
 
+@include media-breakpoint-down(md) {
+  .experience-list {
+    font-size: 1em;
+  }
+  .experience-list-divider {
+    font-size: 1.2em;
+  }
+}
+
 .labels {
   padding: 25px;
   p {
@@ -64,4 +79,8 @@ p {
       margin-left:30px;
       
   }
+}
+
+.navbar-toggler {
+  border: 0px !important;
 }

@@ -2,3 +2,8 @@
   width: 200px;
 }
 
+@include media-breakpoint-down(md) {
+  .logo-img {
+    width: 80px;
+  }
+}

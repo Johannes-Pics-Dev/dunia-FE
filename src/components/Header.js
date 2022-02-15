@@ -13,7 +13,7 @@ export default function Header(props) {
           <Navbar.Brand href="#home">
               <img src={logo} className="img-fluid logo-img" />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="offcanvasNavbar" />
+          <Navbar.Toggle aria-controls="offcanvasNavbar"><FontAwesomeIcon icon={faBars} /></Navbar.Toggle>
             <Navbar.Offcanvas
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"

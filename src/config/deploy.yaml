@@ -1,0 +1,6 @@
+app_name: "dunia"
+server_ip: "195.201.123.36"
+deploy_username: "deploy"
+deploy_root_path: "home"
+deploy_folder: "apps"
+repository_url: "git@github.com:Johannes-Pics-Dev/dunia-FE.git"

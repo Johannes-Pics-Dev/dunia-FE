@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.d430ffc5.css",
-    "main.js": "./static/js/main.3973ba0c.js",
+    "main.css": "./static/css/main.3db261ed.css",
+    "main.js": "./static/js/main.2fa334d6.js",
     "static/media/dunia.mp4": "./static/media/dunia.9600d6068f639e78d814.mp4",
     "static/media/dunia.webm": "./static/media/dunia.02c384adb1df4d79a6fc.webm",
     "static/media/logo.jpg": "./static/media/logo.047b5286874411d54eba.jpg",
     "static/media/fourSeason.png": "./static/media/fourSeason.7c42b2635e6caf3bda1e.png",
     "index.html": "./index.html",
-    "main.d430ffc5.css.map": "./static/css/main.d430ffc5.css.map",
-    "main.3973ba0c.js.map": "./static/js/main.3973ba0c.js.map"
+    "main.3db261ed.css.map": "./static/css/main.3db261ed.css.map",
+    "main.2fa334d6.js.map": "./static/js/main.2fa334d6.js.map"
   },
   "entrypoints": [
-    "static/css/main.d430ffc5.css",
-    "static/js/main.3973ba0c.js"
+    "static/css/main.3db261ed.css",
+    "static/js/main.2fa334d6.js"
   ]
 }

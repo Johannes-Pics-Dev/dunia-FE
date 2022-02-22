@@ -12,14 +12,16 @@ export default function Contacts(props) {
         </Row>
         <Row className="justify-content-center">
           <Col  md="auto" className="text-center">
-            <h6>INFO@DUNIAMILAN.COM</h6>
-            <h6>+39 0202020202</h6>
+            <h6>INFO@DUNIAMILANO.COM</h6>
+            <h6><a href="tel:+39 0247707218" class="contact-link">+39 0247707218</a></h6>
             <h6>Via Aurelio Saffi 26, 20123 Milano</h6>
           </Col>
         </Row>
         <Row className="justify-content-center mt-5">
           <Col  md="auto" className="text-center">
-            <img src={insta} className="img-fluid img-insta" />
+            <a href="https://www.instagram.com/duniamilano" target="_blank">
+             <img src={insta} className="img-fluid img-insta" />
+            </a>
           </Col>
         </Row>
       </Container>

@@ -21,7 +21,7 @@ module.exports = (shipit) => {
 
   shipit.initConfig({
     default: {
-      branch: "dev",
+      branch: "master",
       deployTo: remotePath,
       repositoryUrl: repoUrl,
       ignores: ignoredFiles,

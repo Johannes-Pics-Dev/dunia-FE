@@ -84,3 +84,12 @@ p {
 .navbar-toggler {
   border: 0px !important;
 }
+
+.contact-link {
+  color: #000000;
+  text-decoration: none;
+  &:hover {
+    color: #000000;
+    text-decoration: none;
+  }
+}

@@ -14,7 +14,7 @@ const Experience = () => {
           <Col  md="auto">
             <h6 className="speak-bold">OLTRE I VIAGGI, ESPERIENZE</h6>
             <p>Siamo una experience agency e il nostro obiettivo<br/>
-                è trasformare il tuo temp libero in ricordi realmente indelebili.</p>
+                è trasformare il tuo tempo libero in ricordi realmente indelebili.</p>
             <p>Che si parli di poche ore, giorni, settimane o mesi, poco cambia,<br/>
                 perchè il tempo è il bene più prezioso che abbiamo.<br/>
                 Per questo, studiamo ogni esperienza nel minimo dettaglio,<br/>In base alla tua persona e ai tuoi interessi

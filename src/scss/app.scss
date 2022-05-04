@@ -96,4 +96,20 @@ p {
 
 .legal_footer {
   font-size: 0.6em;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.legal_footer_link {
+  font-size: 0.6em;
+  color: #000000;
+  text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: #000000;
+    }
 }

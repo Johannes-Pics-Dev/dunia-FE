@@ -12,7 +12,7 @@ export default function Contacts(props) {
         </Row>
         <Row className="justify-content-center">
           <Col  md="auto" className="text-center">
-            <h6>INFO@DUNIAMILANO.COM</h6>
+            <h6><a href="mailto:info@duniamilan.com" class="contact-link">INFO@DUNIAMILAN.COM</a></h6>
             <h6><a href="tel:+39 0247707218" class="contact-link">+39 0247707218</a></h6>
             <h6>Via Aurelio Saffi 26, 20123 Milano</h6>
           </Col>

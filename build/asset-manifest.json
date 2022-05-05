@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.8cebdd91.css",
-    "main.js": "./static/js/main.5835fbef.js",
+    "main.js": "./static/js/main.c3266335.js",
     "static/media/dunia.mp4": "./static/media/dunia.9600d6068f639e78d814.mp4",
     "static/media/dunia.webm": "./static/media/dunia.02c384adb1df4d79a6fc.webm",
     "static/media/privacy_dunia.pdf": "./static/media/privacy_dunia.64a27b4a6d8a9bfd633d.pdf",
@@ -9,10 +9,10 @@
     "static/media/fourSeason.png": "./static/media/fourSeason.7c42b2635e6caf3bda1e.png",
     "index.html": "./index.html",
     "main.8cebdd91.css.map": "./static/css/main.8cebdd91.css.map",
-    "main.5835fbef.js.map": "./static/js/main.5835fbef.js.map"
+    "main.c3266335.js.map": "./static/js/main.c3266335.js.map"
   },
   "entrypoints": [
     "static/css/main.8cebdd91.css",
-    "static/js/main.5835fbef.js"
+    "static/js/main.c3266335.js"
   ]
 }

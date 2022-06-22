@@ -2,3 +2,37 @@
     width:100vw;
     height: 100vh;
 }
+.flagWrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    gap: 10px;
+    button{
+        background-color: transparent;
+        border: none;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 64px;
+        height: 64px;
+        opacity: 0.3;
+    }
+    button:disabled{
+        opacity: 1;
+        filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.336));
+    }
+}
+
+.ItalianFlag{
+    background-image: url("./assets/ita.png");
+}
+
+.EnglishFlag{
+    background-image: url("./assets/en.webp");
+}
+
+header{
+    pointer-events: none;
+}

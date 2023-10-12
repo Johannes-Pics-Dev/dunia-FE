@@ -1,0 +1,105 @@
+name: Build stable Docker image (tags)
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.out.outputs.tag }}
+      digest: ${{ steps.out.outputs.digest }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@master
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          platforms: linux/amd64
+          context: .
+          file: ./Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ steps.tag.outputs.tag }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          build-args: "VERSION=${{ steps.tag.outputs.tag }}"
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Outputs
+        id: out
+        run: |
+          echo "digest=${{ steps.docker_build.outputs.digest }}" >> "$GITHUB_OUTPUT"
+          echo "tag=${{ steps.tag.outputs.tag }}" >> "$GITHUB_OUTPUT"
+
+  publish:
+    name: Publish
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+      - id: install-aws-cli
+        uses: unfor19/install-aws-cli-action@v1
+      - name: Get short git commit SHA
+        id: sha
+        run: |
+          calculatedSha=$(git rev-parse --short ${{ github.sha }})
+          echo "::set-output name=short_sha::$calculatedSha"
+      - name: Placeholders
+        run: |
+          sed -i 's/IMAGE_TAG/${{ steps.tag.outputs.tag }}/g' ./kubernetes/kustomization.yaml
+          sed -i 's/IMAGE_NAME/ghcr.io\/${{ github.repository_owner }}\/${{ github.event.repository.name }}/g' ./kubernetes/kustomization.yaml
+          sed -i 's/COMMIT_SHA/${{ steps.sha.outputs.short_sha }}/g' ./kubernetes/kustomization.yaml
+          sed -i 's/REPO_NAME/${{ github.event.repository.name }}/g' ./kubernetes/kustomization.yaml
+      - uses: yokawasa/action-setup-kube-tools@v0.9.2
+      - run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set default.region eu-south-1
+          aws eks --region eu-south-1 update-kubeconfig --name johannes-pics
+          cat ./kubernetes/kustomization.yaml
+          kustomize build ./kubernetes | kubectl apply -f -
+
+  notify:
+    name: Notify
+    needs:
+      - build
+      - publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Webhook
+        uses: indiesdev/curl@v1.1
+        with:
+          url: ${{ secrets.WEBHOOK_URL }}
+          method: "POST"
+          timeout: 30000
+          headers: '{ "x-token": "${{ secrets.WEBHOOK_TOKEN }}" }'
+          body: '{ "project": "${{ github.event.repository.name }}", "tag": "${{ needs.build.outputs.tag }}", "commit": "${{ github.sha }}", "digest": "${{ needs.build.outputs.digest }}" }'

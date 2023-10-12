@@ -1,0 +1,51 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - _deployment.yaml
+  - _service.yaml
+  - _ingress.yaml
+  - _app-config.yaml
+
+namespace: customers
+
+commonLabels:
+  app.kubernetes.io/name: "REPO_NAME"
+
+commonAnnotations:
+  app.kubernetes.io/version: "COMMIT_SHA"
+  app.kubernetes.io/managed-by: kustomize
+
+images:
+  - name: app
+    newName: IMAGE_NAME
+    newTag: IMAGE_TAG
+
+patches:
+  - target:
+      kind: Deployment
+      name: deployment
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: REPO_NAME
+  - target:
+      kind: Service
+      name: service
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: REPO_NAME
+  - target:
+      kind: Ingress
+      name: ingress
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: duniamilano.com
+      - op: replace
+        path: /spec/rules/0/http/paths/0/backend/service/name
+        value: REPO_NAME
+      - op: replace
+        path: /metadata/name
+        value: REPO_NAME
